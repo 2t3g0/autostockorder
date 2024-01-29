@@ -3,9 +3,6 @@ import json     # 특정 객체를 JSON 데이터로 만들어 쓸 수 있음
 
 
 
-APP_KEY = "PSa7x3lfKkRyDe3K2w95yFolW52aLDGRCiPs"
-APP_SECRET = "kFKIVt0QE6gphHpCdX6D9MWtNkx5645EgwwcZSVY4AbOWvflBrDGep4AmNywAetWJwQEhZ7RT/XlYTKL7F1tKeZSHv2wjRSo20ydlbXMIKOEYGDKbutk0BWyf2jd42sG/9/CxyQDmMYTQTsB9NesWlu3yrFkkAULuti4RvzDHQt0kEnuoC4="
-URL_BASE = "https://openapivts.koreainvestment.com:29443" #모의투자서비스
 
 
 def hashkey(datas):
