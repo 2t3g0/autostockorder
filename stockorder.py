@@ -424,7 +424,7 @@ def do_cancel_all():
         print(ar.getErrorCode(), ar.getErrorMessage())
         time.sleep(.2)
 
-def get_trade_rank(next):
+def get_trade_rank():
     url = "/uapi/domestic-stock/v1/quotations/psearch-result"
 
     tr_id = "HHKST03900400"
@@ -435,7 +435,7 @@ def get_trade_rank(next):
     }
     global _isPaper 
     _isPaper = False
-    t1 = usingprod_url_fetch(url, tr_id, params=params,tr_cont=next)
+    t1 = usingprod_url_fetch(url, tr_id, params=params)
     _isPaper = True
     if t1.isOK():
         tdf = pd.DataFrame(t1.getBody().output2)
