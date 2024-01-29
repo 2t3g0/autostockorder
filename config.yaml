@@ -1,34 +1,13 @@
 
-my_app : "PSa7x3lfKkRyDe3K2w95yFolW52aLDGRCiPs"
-my_sec : "kFKIVt0QE6gphHpCdX6D9MWtNkx5645EgwwcZSVY4AbOWvflBrDGep4AmNywAetWJwQEhZ7RT/XlYTKL7F1tKeZSHv2wjRSo20ydlbXMIKOEYGDKbutk0BWyf2jd42sG/9/CxyQDmMYTQTsB9NesWlu3yrFkkAULuti4RvzDHQt0kEnuoC4="
+my_app : "실전투자 app 키"
+my_sec : "실전투자 appsecret 키"
 
-paper_app : "PSa7x3lfKkRyDe3K2w95yFolW52aLDGRCiPs"
-paper_sec : "kFKIVt0QE6gphHpCdX6D9MWtNkx5645EgwwcZSVY4AbOWvflBrDGep4AmNywAetWJwQEhZ7RT/XlYTKL7F1tKeZSHv2wjRSo20ydlbXMIKOEYGDKbutk0BWyf2jd42sG/9/CxyQDmMYTQTsB9NesWlu3yrFkkAULuti4RvzDHQt0kEnuoC4="
+paper_app : "모의투자 app 키"
+paper_sec : "모의투자 appsecret 키"
 
-my_paper_stock : "50101367"
-my_acct_stock : "50101367"
+my_paper_stock : "모의투자 계좌번호"
+my_acct_stock : "실전투자 계좌번호"
 
-vps : "https://openapivts.koreainvestment.com:29443"
-prod : "https://openapi.koreainvestment.com:9443"
+vps : "https://openapivts.koreainvestment.com:29443"  # 모의투자 url
+prod : "https://openapi.koreainvestment.com:9443"     # 실전투자 url
 
-
-
-#홈페이지에서 API서비스 신청시 받은 Appkey, Appsecret 값 설정
-# APP_KEY: "PSWJvA2MW8RiY3tcjvLwCyBLRj287ZsJbIa4"
-# APP_SECRET: "PPpiRGfqBsaXQUH0VfU27yFtNrDf8Mer41LGiTUWF8oot9f6xWXLlE5xI3PH/UqBIh4iBZvNe+wVDtIAp4e9p2FSYj9Wm5CriMcWMTuuoN5/QueD3m3uKa+YWymHFuBmqn4HDfHP6M7mvEeFgHf/NbS4W8DyEZ/bjfXlPwdYsuWrsUxMEr4="
-APP_KEY : "PSa7x3lfKkRyDe3K2w95yFolW52aLDGRCiPs"
-APP_SECRET : "kFKIVt0QE6gphHpCdX6D9MWtNkx5645EgwwcZSVY4AbOWvflBrDGep4AmNywAetWJwQEhZ7RT/XlYTKL7F1tKeZSHv2wjRSo20ydlbXMIKOEYGDKbutk0BWyf2jd42sG/9/CxyQDmMYTQTsB9NesWlu3yrFkkAULuti4RvzDHQt0kEnuoC4="
-
-#계좌번호 앞 8자리
-CANO: "50101367"
-#계좌번호 뒤 2자리
-ACNT_PRDT_CD: "01"
-
-#실전투자
-# URL_BASE: "https://openapi.koreainvestment.com:9443"
-#모의투자
-URL_BASE: "https://openapivts.koreainvestment.com:29443"
-
-my_agent: "'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36"
-#디스코드 웹훅 URL
-DISCORD_WEBHOOK_URL: "https://discordapp.com/api/webhooks/1200318891369443349/ts4tbBUKH8vsxdCGvIDn_0iE6c0zpUwOA7LeoUeTJeBDFcE_6x9i2iGFxpf8cOszp008"
