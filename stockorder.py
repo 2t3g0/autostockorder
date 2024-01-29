@@ -170,6 +170,40 @@ def _url_fetch(api_url, ptr_id, params, appendHeaders=None, postFlag=False, hash
     else:
         print("Error Code : " + str(res.status_code) + " | " + res.text)
         return None
+
+
+# 모의계좌를 사용하지만 요청 url이 실전계좌일 경우
+def usingprod_url_fetch(api_url, ptr_id, params, postFlag=False, hashFlag=True, tr_cont=""):
+    url = f"https://openapi.koreainvestment.com:9443{api_url}"
+    
+    headers = _getBaseHeader()
+
+    #추가 Header 설정
+    tr_id = ptr_id
+
+    headers["tr_id"] = tr_id
+    headers["custtype"] = "P"
+    headers["tr_cont"] = tr_cont
+    
+    if(_DEBUG):
+        print("< Sending Info >")
+        print(f"URL: {url}, TR: {tr_id}")
+        print(f"<header>\n{headers}")
+        print(f"<body>\n{params}")
+        
+    if (postFlag):
+        if(hashFlag): set_order_hash_key(headers, params)
+        res = requests.post(url, headers=headers, data=json.dumps(params))
+    else:
+        res = requests.get(url, headers=headers, params=params)
+
+    if res.status_code == 200:
+        ar = APIResp(res)
+        if (_DEBUG): ar.printAll()
+        return ar
+    else:
+        print("Error Code : " + str(res.status_code) + " | " + res.text)
+        return None
     
 #종목의 주식, ETF, 선물/옵션 등의 구분값을 반환. 현재는 무조건 주식(J)만 반환
 def _getStockDiv(stock_no):
@@ -389,7 +423,25 @@ def do_cancel_all():
         cnt += 1
         print(ar.getErrorCode(), ar.getErrorMessage())
         time.sleep(.2)
-        
-auth(svr='vps')
-# do_buy("005930", 1, 0, order_type="01")
-print(get_current_price("005930")["stck_prpr"])
+
+def get_trade_rank(next):
+    url = "/uapi/domestic-stock/v1/quotations/psearch-result"
+
+    tr_id = "HHKST03900400"
+
+    params = {
+        "user_id" : "maple326",
+        "seq" : '0' #
+    }
+    global _isPaper 
+    _isPaper = False
+    t1 = usingprod_url_fetch(url, tr_id, params=params,tr_cont=next)
+    _isPaper = True
+    if t1.isOK():
+        tdf = pd.DataFrame(t1.getBody().output2)
+        res = tdf[['name', 'trade_amt']]
+        return res
+    else:
+        t1.printError()
+        return None
+    
