@@ -6,7 +6,7 @@ import time
 from apiresp import APIResp
 import pandas as pd
 from collections import namedtuple
-with open('config.yaml', encoding='UTF-8') as f:
+with open('../config.yaml', encoding='UTF-8') as f:
     _cfg = yaml.load(f, Loader=yaml.FullLoader)
   
     
