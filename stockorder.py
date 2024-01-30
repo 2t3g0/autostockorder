@@ -424,6 +424,10 @@ def do_cancel_all():
         print(ar.getErrorCode(), ar.getErrorMessage())
         time.sleep(.2)
 
+
+# 거래대금 상위
+# Input: None
+# Output: None
 def get_trade_rank():
     url = "/uapi/domestic-stock/v1/quotations/psearch-result"
 
@@ -436,10 +440,10 @@ def get_trade_rank():
     global _isPaper 
     _isPaper = False
     t1 = usingprod_url_fetch(url, tr_id, params=params)
-    _isPaper = True
+    _isPaper = True 
     if t1.isOK():
         tdf = pd.DataFrame(t1.getBody().output2)
-        res = tdf[['name', 'trade_amt']]
+        res = tdf[['code', 'name', 'chgrate','trade_amt']]
         return res
     else:
         t1.printError()
