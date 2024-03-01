@@ -2,8 +2,9 @@ import requests # HTTP 요청을 보냄
 import json     # 특정 객체를 JSON 데이터로 만들어 쓸 수 있음
 
 
-
-
+URL_BASE="https://openapivts.koreainvestment.com:29443"
+APP_KEY="PSprkHfenGAnPyks74K2FLpWByTd4xj4pmyt"
+APP_SECRET="A2xyp0xeblYshTHJ2rN80Oz/sazADWUY35ruDmcXLJSJ1O5LOcu0WWUmYtUBc7EMCvPQFgUDMVzi+FxxzLrxNufP5a+toeEuDE8+NU81QYvVR1woBJFElCWpPmnzCKP5eArt7EgHvgsixQhUfEFCzCcfTnZVJuhVgA1/vr2gGDuhlGiDuKk="
 
 def hashkey(datas):
     """암호화"""

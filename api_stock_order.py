@@ -234,7 +234,7 @@ def get_current_price(stock_no):
 # Input: 종목코드, 주문수량, 주문가격, Buy Flag(If True, it's Buy order), order_type="00"(지정가)
 # Output: HTTP Response
 
-def do_order(stock_code, order_qty, order_price, prd_code="01", buy_flag=True, order_type="00"):
+def do_order(stock_code, order_qty, order_price, prd_code="01", buy_flag=True, order_type="01"):
 
     url = "/uapi/domestic-stock/v1/trading/order-cash"
 
@@ -444,6 +444,8 @@ def get_trade_rank():
     if t1.isOK():
         tdf = pd.DataFrame(t1.getBody().output2)
         res = tdf[['code', 'name', 'chgrate','trade_amt']]
+        # res['trade_amt'] = (res['trade_amt'].astype(float) / 100000).astype(str)
+        res.loc[:, 'trade_amt'] = (res['trade_amt'].astype(float) / 100000).astype(str)
         return res
     else:
         t1.printError()
